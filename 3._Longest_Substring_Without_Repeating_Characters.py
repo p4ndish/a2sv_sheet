@@ -1,11 +1,5 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        '''
-        technique was sliding windows and two pointers
-        were if s[j] not in visited then it will be added if s[j] in visited then we will
-        increament i by 1 and update visited by s[i:j] which means not including s[j]
-        then calculate the length of the visited everytime and find the max of it
-        '''
         i,j = 0, 0 
         t = ""
         m = 0
@@ -22,18 +16,29 @@ class Solution:
             
                 
         
+          
+            
+            
+            
+            
+            
+            
+#         i = 0 
+#         j = 0
+#         c = 0
+#         visited = ""
+#         while j < len(s):
+#             print(visited)
+#             if s[j] in visited:
+#                 visited=s[i:j]
+#                 i+=1
+#             if s[j] not in visited:
+#                 visited+=s[j]
+#                 j+=1
+#             if len(visited) > c:
+#                 c = len(visited)
+                
+#         print(c)
+#         return c
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+​
