@@ -2,35 +2,28 @@ class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
-        
         """
-        ptrone  = m - 1
-        ptrtwo  = n - 1
-        idx = m + n -1
+        # if not m < n : return nums2
+        # if not n < m : return nums1
+        place = (m + n) - 1
+        l = m -1
+        r = n - 1
         
-        while ptrtwo >= 0:
-            if ptrone >= 0 and nums1[ptrone] > nums2[ptrtwo]:
-                nums1[idx] = nums1[ptrone]
-                ptrone -=1
+        while r >= 0:
+            if nums2[r] > nums1[l]:
+                #placing it starting from the end
+                nums1[place] = nums2[r]
+                r -= 1
+                place -= 1
+                l -= 1
+                print(nums1)
             else:
-                nums1[idx] = nums2[ptrtwo]
-                ptrtwo -=1
-            idx -= 1
+                nums1[place] = nums1[l]
+                nums1[l] = nums2[r]
+                place -= 1
+                # l -= 1
+                r -= 1
         
-#         if not nums1 or not nums2:
-#             return 
-#         N = len(nums1)
-#         ptr1 = 0
-#         ptr2 = 0
-        
-#         ptr3 = 0
-#         for i in range(N):
-#             if nums1[i] == 0:
-#                 ptr3 = i
-#                 break 
+        # print(nums1)
                 
-        
-#         print(ptr3)
-#         for i in range(len(nums2)):
-#             tar = nums2[i]
-#             while nums1[ptr1] <= tar and nums1[ptr1] != 0:
+        # brute-forcing...
