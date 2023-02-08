@@ -1,18 +1,13 @@
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
-        '''
-        choose the first index then the last two indexs so on....
-        or sort them and calculate how many times i can choose a num from alice -1 index
-        '''
-        piles.sort()
-        l = len(piles)
-        i = 0 
-        j = 2
-        k = l//3
-        res = 0 
-        while i < k:
-            res += piles[l-j]
-            i+=1
-            j+=2
-        return res
+        if len(piles) == 3:
+            return sorted(piles)[-2]
         
+        piles.sort()
+        N = len(piles)
+        c = 0
+        for i in range(N-2, (N//3)-1, -2):
+            print(piles[i])
+            c += piles[i]
+            # mn = min(piles[])
+        return c
