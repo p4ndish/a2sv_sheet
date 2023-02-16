@@ -3,27 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        # if not m < n : return nums2
-        # if not n < m : return nums1
-        place = (m + n) - 1
-        l = m -1
+        l = m - 1
         r = n - 1
-        
+        k = m + n - 1
         while r >= 0:
-            if nums2[r] > nums1[l]:
-                #placing it starting from the end
-                nums1[place] = nums2[r]
-                r -= 1
-                place -= 1
+            if l >= 0 and nums1[l] > nums2[r]:
+                nums1[k] = nums1[l]
                 l -= 1
-                print(nums1)
+                k -= 1
             else:
-                nums1[place] = nums1[l]
-                nums1[l] = nums2[r]
-                place -= 1
-                # l -= 1
+                nums1[k] = nums2[r]
                 r -= 1
-        
+                k -= 1 
+                
         # print(nums1)
                 
-        # brute-forcing...
+                
