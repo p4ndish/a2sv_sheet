@@ -1,29 +1,20 @@
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-        # from collections import Counter
-        # c = Counter(fruits)
-        # if len(c) <= 2:
-        #     return sum(c.values())
-​
-        
-        
-        d = dict()
-        mn = 0
+        N = len(fruits)
+        c = {}
         res = 0
         l = 0
-        for r in range(len(fruits)):
-            # print(d, fruits[l])
-            d[fruits[r]] = r 
-            
-            if len(d) >= 3:
-                mn  = min(d.values())
-                del d[fruits[mn]]
-                l = mn + 1
-            # if len(d) <= 2:
-            res = max(res, (r-l + 1))
-        
-        
-        
+        r = 0
+        #fruits.sort()
+        while r < N:
+            if len(c) <= 2:
+                c[fruits[r]] = r
+                r += 1
+            if len(c) > 2:
+                min_index = N
+                for value in c.values():
+                    min_index = min(min_index, value)
+                del c[fruits[min_index]]
+                l = min_index + 1
+            res = max(res, r - l)
         return res
-        
-        
