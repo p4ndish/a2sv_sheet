@@ -3,9 +3,12 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        i,j = 0,len(s)-1
-        while i <= j :
-            s[i],s[j] = s[j],s[i]
-            i+=1
-            j-=1
-        
+        def reverse(left, right):
+            if left < right:
+                s[left], s[right] = s[right], s[left]
+                left += 1 
+                right -= 1 
+                reverse(left, right)
+            else:
+                return 
+        reverse(0, len(s)-1)
