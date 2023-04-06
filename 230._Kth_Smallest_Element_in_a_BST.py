@@ -6,17 +6,24 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        heap = []
-        # heapq.heapify(heap)
-        
+        self.ans = None 
+        self.isfound = False
+        self.k = k
         def traverse(root):
+            if self.isfound:
+                return 
             if not root:
                 return 
-            traverse(root.left)
-            heapq.heappush(heap, root.val)
-            traverse(root.right)
+            
+            left = traverse(root.left)
+            self.k -= 1 
+            if self.k == 0 :
+                self.ans = root.val 
+                self.isfound = True
+                return 
+            
+            right = traverse(root.right)
+            
+            # return min(left, right)
         traverse(root)
-        heapq.heapify(heap)
-        # print(dir(heapq))
-        # print()
-        return heapq.nsmallest(k, heap)[k-1]
+        return self.ans
