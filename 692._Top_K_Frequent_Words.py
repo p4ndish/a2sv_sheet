@@ -1,9 +1,15 @@
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        c = Counter(words)
-        # print(c.items())
-        # res = []
-        # for i in sorted(c.items(), key=lambda x: (-x[1],x[0])):
-        #     res.append(i[0])
-        # return res[0:k]
-        return nsmallest(k, c.keys(), key=lambda x:(-c[x],x))
+        d = defaultdict(int)
+​
+        for s in words: #O(n)
+            d[s] += 1 
+        heap = []
+        for key,val in d.items(): #O(n)
+            heapq.heappush(heap, (-val, key)) #O(logn)
+        # print(heap)
+​
+        res  = [heapq.heappop(heap)[1] for _ in range(k) ] #O(logn)
+        # res.sort()
+        # print(res)
+        return res
