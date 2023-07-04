@@ -1,30 +1,28 @@
-from collections import defaultdict
-​
 class Solution:
     def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
-        graph = defaultdict(list)
-        ancestors = defaultdict(set)
+        adj = defaultdict(list)
+        degree = defaultdict(int)
         
-​
-        for from_node, to_node in edges:
-            graph[to_node].append(from_node)
-        
-        def dfs(node, path):
+        for parent, child in edges:
+            adj[parent].append(child)
+            degree[child] += 1
             
-            if node in path:
-                return
-            path.add(node)
-            for parent in graph[node]:
-                ancestors[node].add(parent)
-                ancestors[node].update(ancestors[parent])
-                dfs(parent, path)
-            path.remove(node)
         
-        for node in range(n):    
-            dfs(node, set())
-        
-        # Convert ancestors to sorted lists
-        ans = [sorted(list(ancestors[node])) for node in range(n)]
-        
-        return ans
-​
+        q = deque()
+        ans = [set() for i in range(n)]
+        for i in range(n):
+            if degree[i] == 0:
+                q.append(i)
+                
+                
+        while q:
+            p = q.popleft()
+            
+            for child in adj[p]:
+                ans[child].add(p)
+                ans[child].update(ans[p])
+                degree[child] -= 1
+                if degree[child] == 0:
+                    q.append(child)
+        # print(ans)
+        return [sorted(x) for x in ans]
