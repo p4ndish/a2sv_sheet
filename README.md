@@ -8,5 +8,6 @@
 |211|[ Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)|[Python3](./solutions/211.%20Design%20Add%20and%20Search%20Words%20Data%20Structure.py)|3925 ms|
 |421|[ Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/)|[Python3](./solutions/421.%20Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array.py)|1523 ms|
 |677|[ Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs/)|[Python3](./solutions/677.%20Map%20Sum%20Pairs.py)|45 ms|
+|743|[ Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Python3](./solutions/743.%20Network%20Delay%20Time.py)|446 ms|
 |1023|[ Camelcase Matching](https://leetcode.com/problems/camelcase-matching/)|[Python3](./solutions/1023.%20Camelcase%20Matching.py)|42 ms|
 |1514|[ Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/)|[Python3](./solutions/1514.%20Path%20with%20Maximum%20Probability.py)|614 ms|
